@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Righteous', sans-serif;
+}
+
+
+/* CARTAS */
+
+.card{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+.card_front, .card_back{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.45);
+    backface-visibility: hidden;
+
+}
+.flip{
+    transform: rotateY(180deg);
+
+}
+
+.card_front{
+    background-color: #101c2c;
+    transform: rotateY(180deg);
+}
+.card_back{
+
+    color: #101c2c;
+    font-size: 30px;
+    background-color: #05c3ff;
+
+
+}
+
+/* TELA DE GAMEOVER */
+
+.game0ver{
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0,0,0,.85);
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+#restart{
+    background-color: yellow;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 20px;
+}
