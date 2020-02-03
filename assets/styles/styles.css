@@ -5,15 +5,27 @@
 }
 
 body{
+    padding: 10px;
     font-family: 'Righteous', sans-serif;
+    width: 100%;
+    height: 100%;
 }
-
+#gameBoard{
+    margin: auto;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr 1fr 1fr;
+    max-width: 500px;
+    grid-gap: 10px;
+    justify-content: center;
+    /* background-color: tomato; */
+    height: 100vh;
+}
 
 /* CARTAS */
 
 .card{
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform .5s;
