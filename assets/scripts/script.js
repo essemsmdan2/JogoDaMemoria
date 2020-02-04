@@ -13,6 +13,16 @@ let lockMode = null
 let virada1 = null
 let virada2 = null
 
+
+
+
+function startGame() {
+
+
+    criaCarta()
+
+}
+
 function verificaCards() {
 
     let carta1 = document.getElementsByClassName('flip')[0]
@@ -91,7 +101,7 @@ function criaCartas(carta) {
 
     let img = document.createElement('img')
     img.setAttribute("class", "icon")
-    img.setAttribute('src', "/assets/images/" + carta + ".png")
+    img.setAttribute('src', "./assets/images/" + carta + ".png")
     ladoF.appendChild(img)
 
     //back
