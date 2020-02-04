@@ -9,76 +9,56 @@ let techs = [
     'jquery', 'mongo', 'node', 'react'
 
 ]
-let lockMode = null
-let virada1 = null
-let virada2 = null
+let newTechs = techs.slice(0);
+let newtechsagain = [...techs, ...newTechs]
+let lockMode = false;
+let carta1 = null;
+let carta2 = null;
+let flipped = null;
 
+function setCards(id) {
 
+    flipped = document.getElementById(id)
+    let flippedhas = flipped.classList.contains('flip')
 
-
-function startGame() {
-
-
-    criaCarta()
-
-}
-
-function verificaCards() {
-
-    let carta1 = document.getElementsByClassName('flip')[0]
-    let carta2 = document.getElementsByClassName('flip')[1]
-    carta1 = carta1.firstChild
-    carta2 = carta2.firstChild
-
-
-    if (!virada1 || !lockMode) {
-        virada1 = carta1
-    }
-    else {
+    if (lockMode || flippedhas) {
         return false
     }
-    if (!virada2 || !lockMode) {
-        virada2 = carta2
-        lockMode = true
+
+    if (!carta1) {
+        carta1 = document.getElementById(id)
+        return true
     }
     else {
-        false
+        carta2 = document.getElementById(id)
+        lockMode = true
+        return true
     }
 
 
 }
-
-
-
-
-
 
 function criaCarta() {
 
-    techs.forEach((tech) => {
+    console.log(newtechsagain)
+    newtechsagain.forEach((tech) => {
         criaCartas(tech)
     })
 
 }
 
-
-
 function embaralhar() {
+    let neL = newtechsagain.length
+    neL--
+    newtechsagain.forEach(tech => {
 
-
-
-
-    techs.forEach(tech => {
-
-        let rIndex = Math.floor(Math.random() * 10)
-        let Index1 = techs.shift();
-        techs.splice(rIndex, 0, Index1)
+        let rIndex = Math.floor(Math.random() * neL)
+        let Index1 = newtechsagain.shift();
+        newtechsagain.splice(rIndex, 0, Index1)
 
 
 
     });
-
-
 
 }
 
@@ -87,6 +67,7 @@ function criaCartas(carta) {
 
     let cartaAB = document.createElement('div')
     cartaAB.setAttribute("class", 'card')
+    cartaAB.setAttribute("id", criaID())
     cartaAB.setAttribute("onClick", "flippador(this)")
     gameBoard.appendChild(cartaAB)
 
@@ -95,7 +76,6 @@ function criaCartas(carta) {
     //front
     let ladoF = document.createElement('div')
     ladoF.setAttribute("class", 'card_front')
-    ladoF.setAttribute("id", criaID())
     ladoF.setAttribute("data-icon", carta)
     cartaAB.appendChild(ladoF)
 
@@ -114,9 +94,6 @@ function criaCartas(carta) {
 }
 
 function criaID() {
-    return Math.random()
+    return parseInt(Math.random() * 1000)
 }
 
-function flippador(esse) {
-    esse.classList.add('flip')
-}
