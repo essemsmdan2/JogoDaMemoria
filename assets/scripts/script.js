@@ -15,6 +15,8 @@ let lockMode = false;
 let carta1 = null;
 let carta2 = null;
 let flipped = null;
+let gameOver = document.getElementsByClassName('game0ver')[0]
+let count = 0
 
 function setCards(id) {
 
@@ -31,6 +33,7 @@ function setCards(id) {
     }
     else {
         carta2 = document.getElementById(id)
+        countOne()
         lockMode = true
         return true
     }

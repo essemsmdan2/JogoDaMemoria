@@ -5,20 +5,71 @@
 }
 
 body{
-    padding: 10px;
+    display: flex;
     font-family: 'Righteous', sans-serif;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: brown;
+}
+/* CONTAGEM */
+.header{
+    color: white;
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerGame{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+.contagem{
+    /* background-color: rgba(219, 44, 44, 0.856); */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 1px;
+    border-style: solid;
+    border-color: rgb(230, 230, 126);
+    color: white;
+    align-self: center;
 }
 #gameBoard{
-    margin: auto;
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr 1fr 1fr;
-    max-width: 500px;
+    width: 100%;
     grid-gap: 10px;
     justify-content: center;
-    /* background-color: tomato; */
-    height: 50vh;
+    align-items: center;
+}
+
+/* TELA DE GAMEOVER */
+
+.game0ver{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.85);
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+}
+#restart{
+    background-color: yellow;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 20px;
 }
 
 /* CARTAS */
@@ -60,25 +111,3 @@ body{
 
 }
 
-/* TELA DE GAMEOVER */
-
-.game0ver{
-    font-size: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgba(0,0,0,.85);
-    height: 100%;
-    width: 100%;
-    color: white;
-}
-#restart{
-    background-color: yellow;
-    border-radius: 10px;
-    border: none;
-    margin-top: 10px;
-    font-size: 20px;
-    padding: 20px;
-}
