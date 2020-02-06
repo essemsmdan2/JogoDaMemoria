@@ -1,20 +1,35 @@
+
+
+
+
 startGame()
 
 
+//////
+let gameOver = document.getElementsByClassName('game0ver')[0]
+
+
+
+
 function startGame() {
-    embaralhar()
-    criaCarta()
+    game.embaralhar()
+    game.criaCarta()
+    mudaEstimado()
 
 }
+function mudaEstimado() {
+    let estimado = document.getElementsByClassName('contagem')[1]
+    let neL = game.newtechsagain.length
+    estimado.innerHTML = 'MOVIMENTOS MIN = ' + game.newtechsagain.length / 2
+}
 
-let estimado = document.getElementsByClassName('contagem')[1]
-estimado.innerHTML = 'ESTIMADO = ' + newtechsagain.length / 2
+
 function flippador(esse) {
 
-    if (setCards(esse.id)) {
+    if (game.setCards(esse.id)) {
 
         esse.classList.add('flip')
-        checkCards()
+        game.checkCards()
 
         if (checkGameOver()) {
             showGameOver()
@@ -22,48 +37,24 @@ function flippador(esse) {
     }
 
 }
-function countOne() {
-    count++
-    console.log('contagem: ' + count)
-    let contagem = document.getElementsByClassName('contagem')[0]
-    contagem.innerHTML = 'MOVIMENTOS = ' + count
-}
-
-function checkCards() {
-
-    if (!carta1 || !carta2) {
-        return false
-    }
-    let icon1 = carta1.firstElementChild.dataset.icon
-    let icon2 = carta2.firstElementChild.dataset.icon
-    if (icon1 == icon2) {
-        console.log('igual')
-        carta1 = null
-        carta2 = null
-        lockMode = false
 
 
-    } else {
-        clearCards()
 
-
-    }
-}
 
 function clearCards() {
     setTimeout(() => {
 
-        carta1.classList.remove('flip')
-        carta2.classList.remove('flip')
-        carta1 = null
-        carta2 = null
-        lockMode = false
+        game.carta1.classList.remove('flip')
+        game.carta2.classList.remove('flip')
+        game.carta1 = null
+        game.carta2 = null
+        game.lockMode = false
     }, 500)
 
 }
 
 function checkGameOver() {
-    let neL = newtechsagain.length
+    let neL = game.newtechsagain.length
     let allflips = document.getElementsByClassName('flip').length
     if (neL == allflips) {
         return true
@@ -84,8 +75,8 @@ function showGameOver() {
 function restart() {
 
     gameOver.style.display = 'none'
-    gameBoard.innerHTML = ''
-    count = 0
+    game.gameBoard.innerHTML = ''
+    game.count = 0
     let contagem = document.getElementsByClassName('contagem')[0]
     contagem.innerHTML = "MOVIMENTOS = 0"
     startGame()

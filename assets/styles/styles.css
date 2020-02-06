@@ -5,13 +5,13 @@
 }
 
 body{
+    height: 95vh;
     display: flex;
     font-family: 'Righteous', sans-serif;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: brown;
 }
 /* CONTAGEM */
@@ -27,6 +27,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content:center;
+
 }
 .contagem{
     /* background-color: rgba(219, 44, 44, 0.856); */
@@ -37,6 +38,8 @@ body{
     border-color: rgb(230, 230, 126);
     color: white;
     align-self: center;
+    min-width: 150px;
+    justify-content: center;
 }
 #gameBoard{
     display: grid;
@@ -45,6 +48,7 @@ body{
     grid-gap: 10px;
     justify-content: center;
     align-items: center;
+    height: 650px
 }
 
 /* TELA DE GAMEOVER */
@@ -75,8 +79,8 @@ body{
 /* CARTAS */
 
 .card{
-    width: 135px;
-    height: 135px;
+    width: 150px;
+    height: 150px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform .5s;
@@ -110,4 +114,7 @@ body{
 
 
 }
-
+.recorde{
+    display: flex;
+    align-self:flex-start;
+}
