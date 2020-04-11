@@ -1,2 +1,2 @@
 # JogoDaMemória
-Jogo da Memória em Javascript
+Jogo da Memória para treinamento no uso de orientação a objetos
