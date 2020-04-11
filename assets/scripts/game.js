@@ -13,15 +13,13 @@ let game = {
     ],
 
 
-    // newTechs: [...this.techs],
-    // newtechsagain: [...techs, ...newTechs],
     lockMode: false,
     carta1: null,
     carta2: null,
     flipped: null,
     count: 0,
     gameBoard: document.getElementById('gameBoard'),
-    newtechsagain: null,
+    newtechs: null,
     setCards: function (id) {
 
 
@@ -49,27 +47,26 @@ let game = {
 
 
     criaCarta: function () {
-        console.log(this.newtechsagain)
-        this.newtechsagain.forEach((tech) => {
+        this.newtechs.forEach((tech) => {
             this.criaCartas(tech)
+
         })
 
     },
 
     embaralhar: function () {
-        this.newtechsagain = [...this.techs, ...this.techs]
-        let neL = this.newtechsagain.length
-        neL--
-        this.newtechsagain.forEach(tech => {
+        this.newtechs = [...this.techs, ...this.techs]
+        let neL = this.newtechs.length
+        neL++
+        this.newtechs.forEach(tech => {
 
             let rIndex = Math.floor(Math.random() * neL)
-            let Index1 = this.newtechsagain.shift();
-            this.newtechsagain.splice(rIndex, 0, Index1)
+            let Index1 = this.newtechs.shift();
+            this.newtechs.splice(rIndex, 0, Index1)
 
 
 
         });
-        console.log(this.newtechsagain)
     },
 
 
@@ -112,7 +109,6 @@ let game = {
 
     countOne: function () {
         this.count++
-        console.log('contagem: ' + this.count)
         let contagem = document.getElementsByClassName('contagem')[0]
         contagem.innerHTML = 'MOVIMENTOS = ' + this.count
     },
@@ -125,7 +121,6 @@ let game = {
         let icon1 = this.carta1.firstElementChild.dataset.icon
         let icon2 = this.carta2.firstElementChild.dataset.icon
         if (icon1 == icon2) {
-            console.log('igual')
             this.carta1 = null
             this.carta2 = null
             this.lockMode = false

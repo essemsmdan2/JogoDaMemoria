@@ -3,7 +3,7 @@
 
 
 startGame()
-
+console.log(game.newtechs)
 
 //////
 let gameOver = document.getElementsByClassName('game0ver')[0]
@@ -19,8 +19,8 @@ function startGame() {
 }
 function mudaEstimado() {
     let estimado = document.getElementsByClassName('contagem')[1]
-    let neL = game.newtechsagain.length
-    estimado.innerHTML = 'MOVIMENTOS MIN = ' + game.newtechsagain.length / 2
+    let neL = game.newtechs.length
+    estimado.innerHTML = 'MOVIMENTOS MIN = ' + game.newtechs.length / 2
 }
 
 
@@ -54,7 +54,7 @@ function clearCards() {
 }
 
 function checkGameOver() {
-    let neL = game.newtechsagain.length
+    let neL = game.newtechs.length
     let allflips = document.getElementsByClassName('flip').length
     if (neL == allflips) {
         return true
